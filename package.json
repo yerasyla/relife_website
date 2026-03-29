@@ -1,12 +1,14 @@
 {
-  "name": "relife-tmp-next",
+  "name": "relife-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "logo:transparent": "node scripts/apply-logo-transparency.mjs",
+    "logo:sync-icons": "cp public/brand/relife-logo.png src/app/icon.png && cp public/brand/relife-logo.png src/app/apple-icon.png"
   },
   "dependencies": {
     "next": "16.2.1",
@@ -19,6 +21,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
+    "sharp": "^0.34.5",
     "typescript": "^5"
   }
 }
