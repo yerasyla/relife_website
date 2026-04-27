@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "ReLife",
   /** Browser + Open Graph title */
-  metaTitle: "ReLife — Gamified learning for real life",
+  metaTitle: "ReLife: ToDo & Habit Tracker — Level up your life daily",
   description:
-    "Turn everyday tasks into skill-building wins. ReLife uses light game mechanics—scores, six life-skill tracks, and a radar chart—so you learn consistency across vitality, intellect, emotions, spirit, social, and growth.",
+    "Gamify your life with XP, levels, and AI guidance. ReLife is a to-do list, habit tracker, and gamified planner—earn XP, level up, and grow across Vitality, Intellect, Emotions, Spirit, Social, and Discipline. Offline-friendly with secure sync.",
   supportEmail:
     process.env.NEXT_PUBLIC_SUPPORT_EMAIL ?? "team@relife.dev",
   /** Used for data-rights requests where specified in the Privacy Policy */
@@ -17,10 +17,13 @@ export const siteConfig = {
   telegramUrl: "https://t.me/bogenb",
   appStoreUrl:
     process.env.NEXT_PUBLIC_APP_STORE_URL ??
-    "https://apps.apple.com/us/app/relife-level-up/id6749513808",
+    "https://apps.apple.com/us/app/relife-todo-habit-tracker/id6749513808",
   playStoreUrl:
     process.env.NEXT_PUBLIC_PLAY_STORE_URL ??
-    "https://play.google.com/apps/testing/com.yerasyl.todoapp",
+    "https://play.google.com/store/apps/details?id=com.yerasyl.todoapp",
+  /** Solana Mobile — Seeker dApp Store */
+  seekerStoreUrl:
+    process.env.NEXT_PUBLIC_SEEKER_STORE_URL ?? "https://solanamobile.com/",
   legalEntity: "ReLife",
   /** No postal address provided — general contact via email */
   legalAddress: "Contact: team@relife.dev",

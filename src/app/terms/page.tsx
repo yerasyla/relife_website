@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { LegalShell } from "@/components/LegalShell";
 import { TermsOfService } from "@/content/TermsOfService";
 import { siteConfig } from "@/lib/site-config";
-import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -10,8 +10,12 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <article className={`container ${styles.legal}`}>
+    <LegalShell
+      title="Terms of Service"
+      updated={siteConfig.lastUpdatedTerms}
+      intro={`The agreement that covers your use of ${siteConfig.name} and the services we offer alongside it.`}
+    >
       <TermsOfService />
-    </article>
+    </LegalShell>
   );
 }

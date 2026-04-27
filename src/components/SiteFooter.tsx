@@ -17,9 +17,13 @@ export function SiteFooter() {
           <StoreButtons variant="compact" tone="onDark" />
         </div>
         <p className={styles.meta}>
-          © {year} {siteConfig.legalEntity}. {siteConfig.name} is available on{" "}
-          <a href={siteConfig.appStoreUrl}>App Store</a> and{" "}
-          <a href={siteConfig.playStoreUrl}>Google Play</a>.
+          © {year} {siteConfig.legalEntity}. {siteConfig.name} is on the{" "}
+          <a href={siteConfig.appStoreUrl}>App Store</a>,{" "}
+          <a href={siteConfig.playStoreUrl}>Google Play</a>, and the{" "}
+          <a href={siteConfig.seekerStoreUrl}>
+            Seeker dApp Store (Solana Mobile)
+          </a>
+          .
         </p>
       </div>
     </footer>

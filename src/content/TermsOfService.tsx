@@ -1,24 +1,15 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
-import styles from "@/app/legal.module.css";
 
 export function TermsOfService() {
   return (
     <>
-      <h1>Terms of Service</h1>
-      <p className={styles.updated}>
-        Last updated: {siteConfig.lastUpdatedTerms}
-      </p>
-
       <p>
         Welcome to ReLife (&quot;ReLife&quot;, &quot;the App&quot;, &quot;we&quot;,
-        &quot;us&quot;).
+        &quot;us&quot;). These Terms of Service (&quot;Terms&quot;) govern your
+        use of the ReLife application and related services. By accessing or
+        using ReLife, you agree to these Terms.
       </p>
-      <p>
-        These Terms of Service (&quot;Terms&quot;) govern your use of the ReLife
-        application and related services.
-      </p>
-      <p>By accessing or using ReLife, you agree to these Terms.</p>
 
       <h2>1. Use of the App</h2>
       <p>

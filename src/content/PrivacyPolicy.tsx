@@ -1,21 +1,14 @@
 import { siteConfig } from "@/lib/site-config";
-import styles from "@/app/legal.module.css";
 
 export function PrivacyPolicy() {
   return (
     <>
-      <h1>Privacy Policy</h1>
-      <p className={styles.updated}>
-        Last updated: {siteConfig.lastUpdatedPrivacy}
-      </p>
-
       <p>
         ReLife (&quot;the App&quot;, &quot;we&quot;, &quot;us&quot;) is a personal
         productivity and self-improvement application. This Privacy Policy
         explains how we collect, use, and protect your information when you use
-        ReLife.
+        ReLife. By using the App, you agree to the terms described below.
       </p>
-      <p>By using the App, you agree to the terms described below.</p>
 
       <h2>1. Information We Collect</h2>
 

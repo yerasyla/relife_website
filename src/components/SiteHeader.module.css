@@ -2,19 +2,35 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 250, 250, 0.82);
-  backdrop-filter: saturate(180%) blur(16px);
-  -webkit-backdrop-filter: saturate(180%) blur(16px);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  background: rgba(250, 250, 250, 0.78);
+  backdrop-filter: saturate(180%) blur(22px);
+  -webkit-backdrop-filter: saturate(180%) blur(22px);
+  border-bottom: 1px solid rgba(100, 103, 242, 0.08);
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(100, 103, 242, 0.35) 30%,
+    rgba(20, 241, 149, 0.45) 50%,
+    rgba(100, 103, 242, 0.35) 70%,
+    transparent
+  );
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 64px;
-  gap: 1.25rem;
+  min-height: 68px;
+  gap: 1rem;
 }
 
 .brand {
@@ -26,23 +42,28 @@
   letter-spacing: -0.03em;
   color: var(--color-text);
   text-decoration: none;
-  transition: opacity var(--duration) var(--ease-out);
+  transition:
+    transform var(--duration) var(--ease-out),
+    opacity var(--duration) var(--ease-out);
 }
 
 .brand:hover {
   text-decoration: none;
   opacity: 0.88;
+  transform: translateY(-1px);
 }
 
-.brand:hover .brandName {
-  color: var(--color-text);
+.brand:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
 }
 
 .logo {
   flex-shrink: 0;
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(100, 103, 242, 0.18));
 }
 
 .brandName {
@@ -55,20 +76,55 @@
   gap: 0.35rem;
 }
 
-.nav a {
-  font-size: 0.875rem;
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-text-secondary);
   text-decoration: none;
-  padding: 0.5rem 0.85rem;
-  border-radius: var(--radius-md);
-  transition: color var(--duration) var(--ease-out),
+  border-radius: 10px;
+  transition:
+    color var(--duration) var(--ease-out),
     background var(--duration) var(--ease-out);
 }
 
-.nav a:hover {
+.navLink:hover {
   color: var(--color-text);
-  background: rgba(15, 15, 18, 0.05);
+  background: rgba(100, 103, 242, 0.08);
   text-decoration: none;
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.navLinkActive {
+  color: var(--color-primary);
+  background: rgba(100, 103, 242, 0.1);
+}
+
+.navLinkActive::after {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  right: 0.95rem;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad-brand);
+}
+
+@media (max-width: 520px) {
+  .navLink {
+    padding: 0 0.7rem;
+  }
+  .brandName {
+    font-size: 1.05rem;
+  }
 }

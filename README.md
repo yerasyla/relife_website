@@ -1,6 +1,6 @@
 # ReLife — marketing site
 
-Next.js (App Router) landing page with Terms of Service and Privacy Policy for the [ReLife](https://apps.apple.com/us/app/relife-level-up/id6749513808) app.
+Next.js (App Router) landing page with Terms of Service and Privacy Policy for the [ReLife](https://apps.apple.com/us/app/relife-todo-habit-tracker/id6749513808) app.
 
 ## Develop
 
@@ -23,6 +23,7 @@ Copy [`.env.example`](./.env.example) to `.env.local` for local overrides. On Ve
 | `NEXT_PUBLIC_DATA_RIGHTS_EMAIL` | GDPR-style requests (see Privacy Policy) |
 | `NEXT_PUBLIC_APP_STORE_URL` | App Store link |
 | `NEXT_PUBLIC_PLAY_STORE_URL` | Google Play link |
+| `NEXT_PUBLIC_SEEKER_STORE_URL` | Seeker dApp Store / Solana Mobile link |
 
 ## GitHub
 

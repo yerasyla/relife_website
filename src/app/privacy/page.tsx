@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { LegalShell } from "@/components/LegalShell";
 import { PrivacyPolicy } from "@/content/PrivacyPolicy";
 import { siteConfig } from "@/lib/site-config";
-import styles from "../legal.module.css";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -10,8 +10,12 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <article className={`container ${styles.legal}`}>
+    <LegalShell
+      title="Privacy Policy"
+      updated={siteConfig.lastUpdatedPrivacy}
+      intro={`What ${siteConfig.name} collects, why, and the controls you have over your data.`}
+    >
       <PrivacyPolicy />
-    </article>
+    </LegalShell>
   );
 }
