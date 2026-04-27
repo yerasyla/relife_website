@@ -1,9 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { siteConfig, siteUrl } from "@/lib/site-config";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0f12" },
+  ],
+  colorScheme: "light",
+  width: "device-width",
+  initialScale: 1,
+};
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],

@@ -454,8 +454,8 @@
 }
 
 .floatStreak {
-  top: 56%;
-  right: -10%;
+  top: 58%;
+  right: -2%;
   flex-direction: row;
   align-items: baseline;
   gap: 0.5rem;
@@ -1067,6 +1067,38 @@
   .steps {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
+  }
+
+  /* Subtle gradient connector between steps to suggest flow */
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 3rem;
+    right: -1.55rem;
+    width: 1.6rem;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(100, 103, 242, 0.55),
+      rgba(20, 241, 149, 0.55)
+    );
+    border-radius: 2px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    top: 3rem;
+    right: -2rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(20, 241, 149, 0.55);
+    box-shadow: 0 0 0 4px rgba(20, 241, 149, 0.16);
+    transform: translateY(-50%);
+    pointer-events: none;
   }
 }
 

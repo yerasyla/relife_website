@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "logo:transparent": "node scripts/apply-logo-transparency.mjs",
-    "logo:sync-icons": "cp public/brand/relife-logo.png src/app/icon.png && cp public/brand/relife-logo.png src/app/apple-icon.png"
+    "logo:sync-icons": "node scripts/generate-favicons.mjs"
   },
   "dependencies": {
     "next": "16.2.1",

@@ -103,7 +103,7 @@ export default function Home() {
             </div>
             <div>
               <dt>XP</dt>
-              <dd>for what counts</dd>
+              <dd>For meaningful work</dd>
             </div>
             <div>
               <dt>AI</dt>
