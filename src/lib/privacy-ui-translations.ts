@@ -359,6 +359,27 @@ export const PRIVACY_UI_BY_SLUG: Record<PrivacyPolicySlug, PrivacyUiStrings> = {
     translationNote:
       "Bei Abweichungen gilt die englische Datenschutzerklärung unter /privacy.",
   },
+  ru: {
+    ...PRIVACY_UI_EN,
+    title: "Политика конфиденциальности",
+    intro:
+      "Что ReLife собирает, зачем и какие возможности управления данными у вас есть.",
+    metaTitle: "Политика конфиденциальности — ReLife",
+    metaDescription:
+      "Как ReLife собирает, использует и защищает персональные данные.",
+    backToApp: "Назад к ReLife",
+    lastUpdatedPrefix: "Последнее обновление",
+    tocAriaLabel: "Разделы документа",
+    tocTitle: "На этой странице",
+    contactPromptPrefix: "Напишите нам на",
+    contactPromptSuffix:
+      ". Мы стараемся ответить в течение нескольких дней.",
+    questionsTitle: "Вопросы?",
+    backToTop: "↑ Наверх",
+    languageLabel: "Язык",
+    translationNote:
+      "При расхождениях приоритет имеет англоязычная политика по адресу /privacy.",
+  },
   "zh-cn": {
     ...PRIVACY_UI_EN,
     title: "隐私政策",

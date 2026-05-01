@@ -12,6 +12,7 @@ export type PrivacyBodyKey =
   | "zh-tw"
   | "zh-cn"
   | "de"
+  | "ru"
   | "it"
   | "ja"
   | "ko"
@@ -47,6 +48,7 @@ export function privacySlugToDocLang(slug: PrivacyPageSlug): string {
     "zh-cn": "zh-Hans",
     "en-au": "en-AU",
     "en-ca": "en-CA",
+    ru: "ru-RU",
   };
   return map[slug as PrivacyPolicySlug] ?? slug;
 }

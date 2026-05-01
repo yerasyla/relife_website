@@ -23,6 +23,7 @@ export const PRIVACY_POLICY_LOCALES = [
   ["ar", "Arabic"],
   ["fr-ca", "French (Canada)"],
   ["de", "German"],
+  ["ru", "Russian"],
   ["zh-cn", "Chinese (Simplified)"],
   ["en-ca", "English (Canada)"],
   ["es-es", "Spanish (Spain)"],

@@ -8,6 +8,7 @@ import { PrivacyBodyEsMx } from "@/content/privacy/bodies/es-mx";
 import { PrivacyBodyZhTw } from "@/content/privacy/bodies/zh-tw";
 import { PrivacyBodyZhCn } from "@/content/privacy/bodies/zh-cn";
 import { PrivacyBodyDe } from "@/content/privacy/bodies/de";
+import { PrivacyBodyRu } from "@/content/privacy/bodies/ru";
 import { PrivacyBodyIt } from "@/content/privacy/bodies/it";
 import { PrivacyBodyJa } from "@/content/privacy/bodies/ja";
 import { PrivacyBodyKo } from "@/content/privacy/bodies/ko";
@@ -43,6 +44,8 @@ export function PrivacyPolicyBodyRender({
       return <PrivacyBodyZhCn />;
     case "de":
       return <PrivacyBodyDe />;
+    case "ru":
+      return <PrivacyBodyRu />;
     case "it":
       return <PrivacyBodyIt />;
     case "ja":
