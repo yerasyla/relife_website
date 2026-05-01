@@ -3,14 +3,25 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { siteConfig } from "@/lib/site-config";
+import type { PrivacyUiStrings } from "@/lib/privacy-ui";
+import { PRIVACY_UI_EN } from "@/lib/privacy-ui";
 import styles from "./LegalShell.module.css";
 
 type Section = { id: string; label: string };
 
 type Props = {
-  title: string;
   updated: string;
+  /** Merged over English defaults (recommended for `/privacy`) */
+  ui?: Partial<PrivacyUiStrings>;
+  /** Shorthand for non-privacy documents (e.g. Terms) */
+  title?: string;
   intro?: string;
+  /** Extra controls below intro (e.g. language switcher) */
+  headerExtra?: ReactNode;
+  /** English authoritative-policy note — `/privacy` only */
+  showPrivacyDisclaimer?: boolean;
+  /** Shown at the top of the article */
+  articleLead?: ReactNode;
   children: ReactNode;
 };
 
@@ -22,7 +33,22 @@ function slugify(text: string): string {
     .replace(/\s+/g, "-");
 }
 
-export function LegalShell({ title, updated, intro, children }: Props) {
+export function LegalShell({
+  ui: uiPartial,
+  updated,
+  title,
+  intro,
+  headerExtra,
+  showPrivacyDisclaimer = false,
+  articleLead,
+  children,
+}: Props) {
+  const ui: PrivacyUiStrings = {
+    ...PRIVACY_UI_EN,
+    ...(title ? { title, metaTitle: title } : {}),
+    ...(intro ? { intro } : {}),
+    ...uiPartial,
+  };
   const articleRef = useRef<HTMLDivElement>(null);
   const [sections, setSections] = useState<Section[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -38,7 +64,9 @@ export function LegalShell({ title, updated, intro, children }: Props) {
       h2.id = id;
       found.push({ id, label });
     });
-    setSections(found);
+    requestAnimationFrame(() => {
+      setSections(found);
+    });
   }, [children]);
 
   useEffect(() => {
@@ -69,21 +97,25 @@ export function LegalShell({ title, updated, intro, children }: Props) {
       <header className={styles.hero}>
         <div className="container">
           <Link href="/" className={styles.back}>
-            <span aria-hidden>←</span> Back to {siteConfig.name}
+            <span aria-hidden>←</span> {ui.backToApp}
           </Link>
-          <h1 className={styles.title}>{title}</h1>
+          <h1 className={styles.title}>{ui.title}</h1>
           <p className={styles.meta}>
-            Last updated{" "}
+            {ui.lastUpdatedPrefix}{" "}
             <time dateTime={lastUpdatedISO}>{updated}</time>
           </p>
-          {intro ? <p className={styles.intro}>{intro}</p> : null}
+          <p className={styles.intro}>{ui.intro}</p>
+          {headerExtra}
+          {showPrivacyDisclaimer ? (
+            <p className={styles.translationNote}>{ui.translationNote}</p>
+          ) : null}
         </div>
       </header>
 
       <div className={`container ${styles.layout}`}>
-        <aside className={styles.tocWrap} aria-label="Document sections">
+        <aside className={styles.tocWrap} aria-label={ui.tocAriaLabel}>
           <nav className={styles.toc}>
-            <p className={styles.tocTitle}>On this page</p>
+            <p className={styles.tocTitle}>{ui.tocTitle}</p>
             <ol className={styles.tocList}>
               {sections.map((s) => (
                 <li key={s.id}>
@@ -102,19 +134,20 @@ export function LegalShell({ title, updated, intro, children }: Props) {
         </aside>
 
         <article ref={articleRef} className={styles.article}>
+          {articleLead}
           {children}
 
           <div className={styles.contact}>
-            <h2 className={styles.contactTitle}>Questions?</h2>
+            <h2 className={styles.contactTitle}>{ui.questionsTitle}</h2>
             <p>
-              Reach out at{" "}
+              {ui.contactPromptPrefix}{" "}
               <a href={`mailto:${siteConfig.supportEmail}`}>
                 {siteConfig.supportEmail}
               </a>
-              . We try to respond within a few days.
+              {ui.contactPromptSuffix}
             </p>
             <a className={styles.topLink} href="#top">
-              ↑ Back to top
+              {ui.backToTop}
             </a>
           </div>
         </article>

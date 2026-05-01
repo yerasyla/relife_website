@@ -81,6 +81,16 @@
   color: var(--color-text-secondary);
 }
 
+.translationNote {
+  margin: 0.85rem 0 0;
+  max-width: var(--legal-prose);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+  letter-spacing: -0.01em;
+}
+
 /* ===== Layout ===== */
 
 .layout {
